@@ -1,0 +1,57 @@
+---
+title: "Group 6 Evaluations"
+output: html_document
+---
+
+Hello! Please check your evaluations below based on your classmates and instructors. We advise you to come to office hours if specified. 
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+library(readr)
+eval = read.csv("Group 6 Evaluations.csv", stringsAsFactors = FALSE)
+```
+
+**Below are evaluations from your classmates:**
+
+```{r, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+library(ggplot2)
+library(reshape)
+library(plyr)
+eval_num = eval[,1:4]
+set.seed(10)
+eval_num$extra = replicate(nrow(eval_num), sample(1:5, 1))
+names(eval_num) = c("Timestamp", "Purpose communicated clearly?", "Presentation was done in a way that engaged audience?", "Organized and easy to follow?", "Extra")
+num_questions = melt(eval_num, id="Timestamp")
+names(num_questions) = c("Timestamp", "Questions", "Rating")
+num_questions$Rating = as.factor(num_questions$Rating)
+
+df_questions=ddply(num_questions,.(Questions),summarise,
+              prop=(table(Rating)),
+              Rating=names(table(Rating)))
+df_questions = df_questions[df_questions$Questions!="Extra",]
+df_questions$Rating = as.factor(df_questions$Rating)
+df_questions$prop = as.numeric(df_questions$prop)
+names(df_questions)[2] = "Frequency"
+
+# Frequency Graph 
+ggplot(df_questions,aes(x = Rating, y = Frequency,fill=Questions))+
+  geom_bar(stat="identity",position='dodge') +
+  theme(legend.direction = "vertical", legend.position = "bottom")
+```
+
+#### What did you like most about the presentation?
+
+```{r, echo=FALSE, results='asis'} 
+cat(paste('-', eval$What.did.you.like.most.about.the.presentation.[-22]), sep = '\n') 
+```
+
+#### What areas might you suggest for improvement not listed above?
+
+```{r, echo=FALSE, results='asis'}
+cat(paste('-', eval$What.areas.might.you.suggest.for.improvement.not.listed.above.[-22]), sep = '\n')
+```
+
+**Below are notes from your instructors:**
+
+- Smart energy tool 
+- Optimize energy usage 
+- Very good project and excellent presentation! Bravo!
