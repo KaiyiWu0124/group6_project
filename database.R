@@ -7,7 +7,11 @@ data=read.csv("prices.csv",header=TRUE,sep=",")
 colnames(data)
 
 renewable=subset(data,Renewable == "Y")
+renewable
 
 
 lowestprice = data[which(data==min(data$Price)),]
+
+lowestrenew = renewable[which(data==min(data$Price)),]
+lowestrenew
 
