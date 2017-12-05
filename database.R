@@ -2,7 +2,7 @@
 #If you have issues with the file not found
 #Need to use the following in console to the folder the file is in:
 #setwd("C:/Users/asdf/folder etc...")
-data=read.csv("prices.csv",header=TRUE,sep=",")
+data=read.csv("16801WestPennPower.csv",header=TRUE,sep=",")
 #Column names for reference
 colnames(data)
 
