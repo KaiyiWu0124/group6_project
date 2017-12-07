@@ -1,106 +1,106 @@
-Price,Supplier,Type,Renewable
-0.0689,Nittany Energy LLC,Residential,
-0.0699,Nittany Energy LLC,Residential,
-0.0769,IGS Energy,Residential,
-0.0774,Energy Rewards,Residential,
-0.0669,Nittany Energy LLC,Residential,
-0.1009,SFE Energy,Residential,Y
-0.0839,Just Energy,Residential,
-0.0839,Just Energy,Residential,
-0.0819,Just Energy,Residential,
-0.0618,AEP Energy,Residential,
-0.0665,AEP Energy,Residential,
-0.0616,AEP Energy,Residential,Y
-0.1028,Agera Energy LLC,Residential,
-0.1066,Agera Energy LLC,Residential,
-0.06,Agway Energy Services LLC ,Residential,
-0.06,Agway Energy Services LLC ,Residential,Y
-0.0621,Ambit Energy,Residential,
-0.0975,Ambit Energy,Residential,Y
-0.0469,American Power & Gas of Pennsylvania LLC,Residential,
-0.0769,American Power & Gas of Pennsylvania LLC,Residential,Y
-0.092,American Power & Gas of Pennsylvania LLC,Residential,Y
-0.066,"AP Gas & Electric (PA), LLC",Residential,
-0.072,Champion Energy Services LLC,Residential,
-0.074,Champion Energy Services LLC,Residential,
-0.058,Champion Energy Services LLC,Residential,
-0.119,Community Energy,Residential,Y
-0.0659,Constellation Energy,Residential,
-0.0579,Constellation Energy,Residential,
-0.0689,Constellation Energy,Residential,Y
-0.0759,Direct Energy,Residential,
-0.0739,Direct Energy,Residential,
-0.1135,Energy Rewards,Residential,
-0.1066,Energy.Me,Residential,
-0.1028,Energy.Me,Residential,
-0.0627,FirstEnergy Solutions,Residential,
-0.0603,FirstEnergy Solutions,Residential,
-0.0631,FirstEnergy Solutions,Residential,Y
-0.058,Green Mountain Energy Company,Residential,Y
-0.0834,"IDT Energy, Inc.",Residential,
-0.1113,"IDT Energy, Inc.",Residential,Y
-0.0739,IGS Energy,Residential,
-0.0779,IGS Energy,Residential,Y
-0.0699,LifeEnergy,Residential,
-0.0699,LifeEnergy,Residential,
-0.0699,LifeEnergy,Residential,Y
-0.0711,"MidAmerican Energy Services, LLC",Residential,
-0.0599,North American Power,Residential,
-0.069,NRG Home,Residential,
-0.064,NRG Home,Residential,25
-0.059,NRG Home,Residential,25
-0.065,Oasis Energy,Residential,
-0.0769,Oasis Energy,Residential,
-0.0589,Oasis Energy,Residential,
-0.0838,Pennsylvania Gas & Electric,Residential,
-0.0899,Planet Energy (Pennsylvania) Corp.,Residential,
-0.0705,Plymouth Rock Energy,Residential,
-0.0722,Plymouth Rock Energy,Residential,
-0.0737,Plymouth Rock Energy,Residential,
-0.0701,"Public Power, LLC",Residential,
-0.1095,"Public Power, LLC",Residential,
-0.0704,Residents Energy LLC,Residential,
-0.1113,Residents Energy LLC,Residential,Y
-0.1227,Residents Energy LLC,Residential,
-0.0889,Respond Power LLC,Residential,
-0.0799,SFE Energy,Residential,
-0.0799,SFE Energy,Residential,
-0.0648,Sperian Energy,Residential,
-0.0659,Sperian Energy,Residential,
-0.0819,Star Energy Partners LLC,Residential,Y
-0.0729,Star Energy Partners LLC,Residential,Y
-0.0849,Star Energy Partners LLC,Residential,Y
-0.0838,Stream Energy,Residential,
-0.0848,Stream Energy,Residential,
-0.0628,Stream Energy,Residential,
-0.078,Think Energy,Residential,
-0.079,Think Energy,Residential,
-0.079,Think Energy,Residential,
-0.0539,Town Square Energy,Residential,
-0.0589,Town Square Energy,Residential,
-0.0659,TriEagle Energy L.P.,Residential,
-0.0679,TriEagle Energy L.P.,Residential,
-0.0669,TriEagle Energy L.P.,Residential,
-0.0849,"Verde Energy USA, Inc.",Residential,Y
-0.068,WGL Energy Services,Residential,5
-0.068,WGL Energy Services,Residential,5
-0.073,Liberty Power,Residential,Y
-0.0708,Liberty Power,Residential,Y
-0.0678,Liberty Power,Residential,
-0.079,Green Mountain Energy Company,Residential,Y
-0.0576,Titan Gas and Power,Residential,
-0.057,Cirro Energy,Residential,
-0.068,Cirro Energy,Residential,
-0.058,Cirro Energy,Residential,
-0.067,"AP Gas & Electric (PA), LLC",Residential,
-0.0715,BlueRock Energy Inc.,Residential,
-0.07,BlueRock Energy Inc.,Residential,
-0.0598,Vista Energy Marketing L.P.,Residential,
-0.086,CleanChoice Energy,Residential,Y
-0.086,CleanChoice Energy,Residential,Y
-0.0549,Vista Energy Marketing L.P.,Residential,
-0.102,CleanChoice Energy,Residential,Y
-0.094,"Palmco Power PA, LLC",Residential,
-0.059,"Palmco Power PA, LLC",Residential,
-0.0529,Inspire,Residential,Y
-0.0569,"AP Gas & Electric (PA), LLC",Residential,
+Price,Supplier,Type,Renewable,Type
+0.0689,Nittany Energy LLC,Residential,,Oil
+0.0699,Nittany Energy LLC,Residential,,Oil
+0.0769,IGS Energy,Residential,,Natural Gas
+0.0774,Energy Rewards,Residential,,Coal
+0.0669,Nittany Energy LLC,Residential,,Oil
+0.1009,SFE Energy,Residential,Y,Renewable
+0.0839,Just Energy,Residential,,Natural Gas
+0.0839,Just Energy,Residential,,Natural Gas
+0.0819,Just Energy,Residential,,Natural Gas
+0.0618,AEP Energy,Residential,,Natural Gas
+0.0665,AEP Energy,Residential,,Natural Gas
+0.0616,AEP Energy,Residential,Y,Renewable
+0.1028,Agera Energy LLC,Residential,,Natural Gas
+0.1066,Agera Energy LLC,Residential,,Natural Gas
+0.06,Agway Energy Services LLC ,Residential,,Natural Gas
+0.06,Agway Energy Services LLC ,Residential,Y,Renewable
+0.0621,Ambit Energy,Residential,,Natural Gas
+0.0975,Ambit Energy,Residential,Y,Renewable
+0.0469,American Power & Gas of Pennsylvania LLC,Residential,,Natural Gas
+0.0769,American Power & Gas of Pennsylvania LLC,Residential,Y,Renewable
+0.092,American Power & Gas of Pennsylvania LLC,Residential,Y,Renewable
+0.066,"AP Gas & Electric (PA), LLC",Residential,,Natural Gas
+0.072,Champion Energy Services LLC,Residential,,Natural Gas
+0.074,Champion Energy Services LLC,Residential,,Natural Gas
+0.058,Champion Energy Services LLC,Residential,,Natural Gas
+0.119,Community Energy,Residential,Y,Renewable
+0.0659,Constellation Energy,Residential,,Oil
+0.0579,Constellation Energy,Residential,,Natural Gas
+0.0689,Constellation Energy,Residential,Y,Renewable
+0.0759,Direct Energy,Residential,,Natural Gas
+0.0739,Direct Energy,Residential,,Natural Gas
+0.1135,Energy Rewards,Residential,,Coal
+0.1066,Energy.Me,Residential,,Natural Gas
+0.1028,Energy.Me,Residential,,Natural Gas
+0.0627,FirstEnergy Solutions,Residential,,Oil
+0.0603,FirstEnergy Solutions,Residential,,Natural Gas
+0.0631,FirstEnergy Solutions,Residential,Y,Renewable
+0.058,Green Mountain Energy Company,Residential,Y,Renewable
+0.0834,"IDT Energy, Inc.",Residential,,Natural Gas
+0.1113,"IDT Energy, Inc.",Residential,Y,Renewable
+0.0739,IGS Energy,Residential,,Natural Gas
+0.0779,IGS Energy,Residential,Y,Renewable
+0.0699,LifeEnergy,Residential,,Natural Gas
+0.0699,LifeEnergy,Residential,,Natural Gas
+0.0699,LifeEnergy,Residential,Y,Renewable
+0.0711,"MidAmerican Energy Services, LLC",Residential,,Natural Gas
+0.0599,North American Power,Residential,,Natural Gas
+0.069,NRG Home,Residential,,Natural Gas
+0.064,NRG Home,Residential,25,Renewable
+0.059,NRG Home,Residential,25,Renewable
+0.065,Oasis Energy,Residential,,Natural Gas
+0.0769,Oasis Energy,Residential,,Natural Gas
+0.0589,Oasis Energy,Residential,,Natural Gas
+0.0838,Pennsylvania Gas & Electric,Residential,,Natural Gas
+0.0899,Planet Energy (Pennsylvania) Corp.,Residential,,Natural Gas
+0.0705,Plymouth Rock Energy,Residential,,Natural Gas
+0.0722,Plymouth Rock Energy,Residential,,Natural Gas
+0.0737,Plymouth Rock Energy,Residential,,Natural Gas
+0.0701,"Public Power, LLC",Residential,,Natural Gas
+0.1095,"Public Power, LLC",Residential,,Natural Gas
+0.0704,Residents Energy LLC,Residential,,Natural Gas
+0.1113,Residents Energy LLC,Residential,Y,Renewable
+0.1227,Residents Energy LLC,Residential,,Natural Gas
+0.0889,Respond Power LLC,Residential,,Natural Gas
+0.0799,SFE Energy,Residential,,Natural Gas
+0.0799,SFE Energy,Residential,,Natural Gas
+0.0648,Sperian Energy,Residential,,Natural Gas
+0.0659,Sperian Energy,Residential,,Oil
+0.0819,Star Energy Partners LLC,Residential,Y,Renewable
+0.0729,Star Energy Partners LLC,Residential,Y,Renewable
+0.0849,Star Energy Partners LLC,Residential,Y,Renewable
+0.0838,Stream Energy,Residential,,Natural Gas
+0.0848,Stream Energy,Residential,,Natural Gas
+0.0628,Stream Energy,Residential,,Natural Gas
+0.078,Think Energy,Residential,,Natural Gas
+0.079,Think Energy,Residential,,Natural Gas
+0.079,Think Energy,Residential,,Natural Gas
+0.0539,Town Square Energy,Residential,,Oil
+0.0589,Town Square Energy,Residential,,Oil
+0.0659,TriEagle Energy L.P.,Residential,,Natural Gas
+0.0679,TriEagle Energy L.P.,Residential,,Natural Gas
+0.0669,TriEagle Energy L.P.,Residential,,Natural Gas
+0.0849,"Verde Energy USA, Inc.",Residential,Y,Renewable
+0.068,WGL Energy Services,Residential,5,Natural Gas
+0.068,WGL Energy Services,Residential,5,Natural Gas
+0.073,Liberty Power,Residential,Y,Renewable
+0.0708,Liberty Power,Residential,Y,Renewable
+0.0678,Liberty Power,Residential,,Natural Gas
+0.079,Green Mountain Energy Company,Residential,Y,Renewable
+0.0576,Titan Gas and Power,Residential,,Natural Gas
+0.057,Cirro Energy,Residential,,Natural Gas
+0.068,Cirro Energy,Residential,,Natural Gas
+0.058,Cirro Energy,Residential,,Natural Gas
+0.067,"AP Gas & Electric (PA), LLC",Residential,,Natural Gas
+0.0715,BlueRock Energy Inc.,Residential,,Natural Gas
+0.07,BlueRock Energy Inc.,Residential,,Natural Gas
+0.0598,Vista Energy Marketing L.P.,Residential,,Natural Gas
+0.086,CleanChoice Energy,Residential,Y,Renewable
+0.086,CleanChoice Energy,Residential,Y,Renewable
+0.0549,Vista Energy Marketing L.P.,Residential,,Natural Gas
+0.102,CleanChoice Energy,Residential,Y,Renewable
+0.094,"Palmco Power PA, LLC",Residential,,Natural Gas
+0.059,"Palmco Power PA, LLC",Residential,,Natural Gas
+0.0529,Inspire,Residential,Y,Renewable
+0.0569,"AP Gas & Electric (PA), LLC",Residential,,Natural Gas
