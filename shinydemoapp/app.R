@@ -52,11 +52,12 @@ plot.costco=function(data,kwh,bill){
   ##TO BE ADDED: Color hack so it shows lowest cost/lowest renewable 
   ##plotdata$color=ifelse(rownames(plotdata) ==(lowestrenew|lowestcost),"True","False")
   #Plot function:
+
   plotcost=ggplot(plotdata)+
     #Price Bar
-    geom_bar(stat="identity", aes(x=reorder(xvalue,-Price),y=Price),color="black",fill="blue")+
+    geom_bar(stat="identity", aes(x=reorder(xvalue,-Price),y=Price),color="grey3",fill="blue")+
     #CO2 Bar
-    geom_bar(stat="identity",aes(x=xvalue,y=(CO/10)),color="green",alpha=.3)+
+    geom_bar(stat="identity",aes(x=xvalue,y=(CO/20)),color="grey3",fill="green")+
     #Your Bill Point
     geom_point(aes(y=bill,x=median(xvalue)),size=5,color="red")+
     #Hides Old Axis labels
@@ -64,7 +65,7 @@ plot.costco=function(data,kwh,bill){
     #New Axis Label
     labs(title=(lowestcosttitle),subtitle=(lowestrenewtitle),x="Suppliers",y="Cost (blue)")+
     #2nd Y Axis Label/Scaling
-    scale_y_continuous(sec.axis= sec_axis(~./max(plotdata$CO)*10000,name="Total Amount of CO2 in kg (Green)"))+
+    scale_y_continuous(sec.axis= sec_axis(~./max(plotdata$CO)*20000,name="Total Amount of CO2 in kg (Green)"))+
     annotate("text",x=median(xvalue),y=bill+5, label="Your Current Bill")
   return(plotcost)
 }
@@ -99,7 +100,7 @@ ui <- fluidPage(
 server <- function(input, output) {
   output$plotcost = renderPlot({
     plot.costco(data=data,kwh=input$kwh,bill=input$bill)
-  }, height = 800,width=600)
+  }, height = 900,width=800)
 }
 # Run the application 
 shinyApp(ui = ui, server = server)
