@@ -38,14 +38,15 @@ plot.costco=function(data,kwh,bill){
   plotdata = sort.data(data,kwh,data$Type.1)
   #X values for graph since data is already sorted by price.
   xvalue = 1:nrow(data)
-  #Finds the lowest renewable
-  #renewable=subset(data,Renewable == "Y")
-  #lowestrenew = as.numeric(rownames(renewable[which(plotdata==min(plotdata$Price)),]))
-  #Lowest Cost
-  #lowestcost = as.numeric(rownames(plotdata[which(plotdata==min(plotdata$Price)),]))
-  #TO BE ADDED: Color hack so it shows lowest cost/lowest renewable 
-  #plotdata$color=ifelse(rownames(plotdata) ==(lowestrenew|lowestcost),"True","False")
-  #plotting
+  ## = NEED TO ADD
+  ##Finds the lowest renewable
+  ##renewable=subset(data,Renewable == "Y")
+  ##lowestrenew = as.numeric(rownames(renewable[which(plotdata==min(plotdata$Price)),]))
+  ##Lowest Cost
+  ##lowestcost = as.numeric(rownames(plotdata[which(plotdata==min(plotdata$Price)),]))
+  ##TO BE ADDED: Color hack so it shows lowest cost/lowest renewable 
+  ##plotdata$color=ifelse(rownames(plotdata) ==(lowestrenew|lowestcost),"True","False")
+  #Plot function:
   plotcost=ggplot(plotdata)+
     #Price Bar
     geom_bar(stat="identity", aes(x=reorder(xvalue,-Price),y=Price),color="black",fill="blue")+
