@@ -1,13 +1,16 @@
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
 #TEMPORARY FUNCTION FOR SAMPLE SHINY APP
 #Real functions will be expanded to include zipcode, distributor, multiple renewables
+library(shiny)
+library(ggplot2)
 data=read.csv("16801WestPennPower.csv",header=TRUE,sep=",")
-#Column names for reference
-colnames(data)
-length(data$Price)
-
-
-
-#Returns 1 KWH = Grams of CO2 produced by energy type
 cf_choose = function(energytype){
   cf_coal = 909
   cf_naturalgas = 465
@@ -40,12 +43,12 @@ plot.costco=function(data,kwh,bill){
   xvalue = 1:nrow(data)
   ## = NEED TO ADD
   ##Finds the lowest renewable
-  ##renewable=subset(data,Renewable == "Y")
+  renewable=subset(data,Renewable == "Y")
   lowestrenew = renewable[which(plotdata==min(plotdata$Price)),]
-  lowestrenewtitle = paste("The Lowest Renewable Supplier is:",lowestrenew$Supplier,"@ $",lowestrenew$Price,"per kiloWatthour")
+  lowestrenewtitle = paste("The Lowest Renewable Supplier is:",lowestrenew$Supplier,"@ $",lowestrenew$Price,"per kWh")
   ##Lowest Cost
   lowestcost = plotdata[which(plotdata==min(plotdata$Price)),]
-  lowestcosttitle = paste("The Lowest Cost Supplier is:",lowestcost$Supplier,"@ $",lowestrenew$Price,"per kiloWatthour")
+  lowestcosttitle = paste("The Lowest Cost Supplier is:",lowestcost$Supplier,"@ $",lowestrenew$Price,"per kWh")
   ##TO BE ADDED: Color hack so it shows lowest cost/lowest renewable 
   ##plotdata$color=ifelse(rownames(plotdata) ==(lowestrenew|lowestcost),"True","False")
   #Plot function:
@@ -65,6 +68,39 @@ plot.costco=function(data,kwh,bill){
     annotate("text",x=median(xvalue),y=bill+5, label="Your Current Bill")
   return(plotcost)
 }
-plot.costco(data,100,100)
 
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+   
+   # Application title
+   titlePanel("Energy Optimizer"),
+   
+   # Sidebar with a slider input for number of bins 
+   sidebarLayout(
+      sidebarPanel(
+        numericInput("zip",
+                     "Zipcode:",value=16801,min=NA,max=NA),
+        selectInput("dist","Your Current Utility Company:",selected="West Penn Power",list("Citizens' Electric Company","Duquesne Light","Met-Ed","PECO Energy","Penelec","Penn Power","Pike County Light & Power","PPL Electric Utilities","UGI","Wellsboro Electric Company","West Penn Power")),
+        numericInput("kwh","Amount of kWh on last bill:",1000),
+        numericInput("bill","How much was your last month's power bill:",100)
+        
+      ),
+      
+      # Show a plot of the generated distribution
+      mainPanel(
+        plotOutput("plotcost")
+        )
+      )
+   )
+
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+  output$plotcost = renderPlot({
+    plot.costco(data=data,kwh=input$kwh,bill=input$bill)
+  }, height = 800,width=600)
+}
+# Run the application 
+shinyApp(ui = ui, server = server)
 
