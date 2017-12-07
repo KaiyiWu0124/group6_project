@@ -45,10 +45,10 @@ plot.costco=function(data,kwh,bill){
   ##Finds the lowest renewable
   renewable=subset(data,Renewable == "Y")
   lowestrenew = renewable[which(plotdata==min(plotdata$Price)),]
-  lowestrenewtitle = paste("The Lowest Renewable Supplier is:",lowestrenew$Supplier,"@ $",lowestrenew$Price,"per kWh")
+  lowestrenewtitle = paste("The Lowest Renewable Supplier is:",lowestrenew$Supplier,"@ $",lowestrenew$Price)
   ##Lowest Cost
   lowestcost = plotdata[which(plotdata==min(plotdata$Price)),]
-  lowestcosttitle = paste("The Lowest Cost Supplier is:",lowestcost$Supplier,"@ $",lowestrenew$Price,"per kWh")
+  lowestcosttitle = paste("The Lowest Cost Supplier is:",lowestcost$Supplier,"@ $",lowestrenew$Price)
   ##TO BE ADDED: Color hack so it shows lowest cost/lowest renewable 
   ##plotdata$color=ifelse(rownames(plotdata) ==(lowestrenew|lowestcost),"True","False")
   #Plot function:
@@ -83,8 +83,8 @@ ui <- fluidPage(
         numericInput("zip",
                      "Zipcode:",value=16801,min=NA,max=NA),
         selectInput("dist","Your Current Utility Company:",selected="West Penn Power",list("Citizens' Electric Company","Duquesne Light","Met-Ed","PECO Energy","Penelec","Penn Power","Pike County Light & Power","PPL Electric Utilities","UGI","Wellsboro Electric Company","West Penn Power")),
-        numericInput("kwh","Amount of kWh on last bill:",1000),
-        numericInput("bill","How much was your last month's power bill:",100)
+        numericInput("kwh","Amount of kWh on last bill:",249),
+        numericInput("bill","How much was your last month's power bill:",19.2)
         
       ),
       
