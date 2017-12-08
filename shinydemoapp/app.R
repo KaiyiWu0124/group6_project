@@ -10,29 +10,31 @@
 #Real functions will be expanded to include zipcode, distributor, multiple renewables
 library(shiny)
 library(ggplot2)
+
+##Need to change this for package.
 data=read.csv("16801WestPennPower.csv",header=TRUE,sep=",")
+
 #Temp disabled.  Using different co2 formula
-#cf_choose = function(energytype){
-#  cf_coal = 909
-#  cf_naturalgas = 465
-#  cf_oil = 821
-#  cf_renewable = 0
-#  if (energytype == "Oil"){return(cf_oil)}
-#  else if (energytype =="Natural Gas"){return(cf_naturalgas)}
-#  else if (energytype == "Coal"){return(cf_coal)}
-#  else if (energytype == "Renewable"){return(cf_renewable)}
-#}
+cf_choose = function(energytype,kwh){
+  cf_coal = (63.729)
+  cf_naturalgas = (25.136*kwh)
+  cf_oil = (.750*kwh)
+  cf_renewable = 0
+  if (energytype == "Oil"){return(cf_oil)}
+  else if (energytype =="Natural Gas"){return(cf_naturalgas)}
+  else if (energytype == "Coal"){return(cf_coal)}
+  else if (energytype == "Renewable"){return(cf_renewable)}
+}
+
 #Resorts Data for plotting + converts price-per-kilowatt to price + Calculates total CO2 in kg
 sort.data = function(data,kwh,bill){
-  #Reorders datatable by Price and reindexes row numbers
+  #Reorders datatable by Price (least to highest) and reindexes row numbers
   data = data[order(data$Price),];rownames(data) = 1:nrow(data)
-  #Adds Column with metric tons of CO2 produced 
-  for(i in 1:length(data$Price)){
-    data$CO[i]=(bill/data$Price[i]) *16.44
-    #old line w/ old formula calc.
-    #((cf_choose(energytype[i])/1000)*kwh)
+  #This calculates CO2 and adds to dataframe.  Can be referenced as data$CO
+  for(i in 1:length(data$Type.1)){
+    data$CO[i]=(cf_choose(data$Type.1[i],kwh))
   }
-  #Converts Price per kwh to cost
+  #Converts Price per kwh to total cost.  Can remove if needed.
   data$Price = data$Price *kwh
   return(data)
 } 
@@ -44,34 +46,34 @@ plot.costco=function(data,kwh,bill){
   plotdata = sort.data(data,kwh,bill)
   #X values for graph since data is already sorted by price.
   xvalue = 1:nrow(data)
-  ## = NEED TO ADD
-  ##Finds the lowest renewable
+  ##Finds the lowest renewable: 
+  ##Returns a dataframe with 1 row
   renewable=subset(data,Renewable == "Y")
-  yourco = (bill/kwh)*16.44
   lowestrenew = renewable[which(plotdata==min(plotdata$Price)),]
   lowestrenewtitle = paste("The Lowest Renewable Supplier is:",lowestrenew$Supplier,"@ $",lowestrenew$Price)
   ##Lowest Cost
   lowestcost = plotdata[which(plotdata==min(plotdata$Price)),]
   lowestcosttitle = paste("The Lowest Cost Supplier is:",lowestcost$Supplier,"@ $",lowestrenew$Price)
-  ##TO BE ADDED: Color hack so it shows lowest cost/lowest renewable 
+  ##TO BE ADDED: Color hack so it shows lowest cost/lowest renewable/other data
   ##plotdata$color=ifelse(rownames(plotdata) ==(lowestrenew|lowestcost),"True","False")
+  
   #Plot function:
-
   plotcost=ggplot(plotdata)+
     #Price Bar
     geom_bar(stat="identity", aes(x=reorder(xvalue,-Price),y=Price),color="black",fill="blue")+
-    #CO2 Bar
-    geom_bar(stat="identity",aes(x=xvalue,y=CO/500),color="green")+
-    #Your Bill Point
-    geom_point(aes(y=bill,x=median(xvalue)),size=5,color="red")+
-    #Your estminated carbon footprint
-    geom_point(aes(y=yourco,x=median(xvalue)),size=5,color="pink",alpha=1)+
+    #CO2 Bar.  CO is divided by 1000 so visually it doesn't mess up the graph.  Axis ticket marks below multiplied by 1000 to compensate
+    geom_bar(stat="identity",aes(x=xvalue,y=CO/1000),color="green")+
+    #Your current Bill Point
+    #geom_point(aes(y=bill,x=median(xvalue)),size=5,color="red")+
+    #Your estminated carbon footprint as point
+    #geom_point(aes(y=yourco,x=median(xvalue)),size=5,color="pink",alpha=1)+
     #Hides Old Axis labels
     theme(plot.title = element_text(hjust=0, size=12),plot.subtitle = element_text(hjust=0, size=12),axis.title=element_text(face="bold",size=14),axis.text.y=element_text(face="bold",size=12),axis.text.x=element_blank(),axis.ticks.x=element_blank(),legend.position="none")+
     #New Axis Label
     labs(title=(lowestcosttitle),subtitle=(lowestrenewtitle),x="Suppliers",y="Cost (blue)")+
     #2nd Y Axis Label/Scaling
-    scale_y_continuous(sec.axis= sec_axis(~./max(plotdata$CO)*500000,name="CO2 emissions in pounds per year (Green)"))+
+    scale_y_continuous(sec.axis= sec_axis(~./max(plotdata$CO)*1000,name="CO2 emissions in pounds per year (Green)"))+
+    #Text for your current bill
     annotate("text",x=median(xvalue),y=bill+5, label="Your Current Bill")
   return(plotcost)
 }
